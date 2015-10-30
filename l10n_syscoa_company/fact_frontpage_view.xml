@@ -1,0 +1,295 @@
+<openerp>
+<data>
+
+	<record id="inherit_res_company_form_view" model="ir.ui.view">
+        <field name="name">inherit.res.company.form.view</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@string='General Information']" position="after">
+            	<page string="Additional Info">
+           			<group>
+           			    <group>
+                			<field name="company_acronym" required="1"/>
+            	    		<field name="code_importer" />
+        	        		<field name="code_activity_principal" />
+    	            		<field name="name_activity_pincipal" />
+	                		<field name="office" />
+	                	</group>
+	                	<group>
+                			<field name="social_registry_id" />
+                			<field name="fiscal_id" />
+            	    		<field name="first_fiscalyear_in_country" />
+        	        		<field name="controlled_by"/>
+        	        		<field name="vat" string="RCCM" />
+        	        		<field name="company_registry" string="NINEA"/>
+        	        	</group>
+        	        </group>
+            	</page>
+            </xpath>
+            <field name="website" position="replace">
+            </field>
+            <field name="email" position="after">
+                <field name="website"/>
+            </field>
+            <xpath expr="//form/sheet/notebook/page[@string='Additional Info']" position="inside">
+            <notebook>
+            <page string="Subsidiaries Affiliates">
+                    <field name="branches" editable="bottom">
+                        <tree string="Subsidiauiesinfo" editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="company_id" required="1" readonly="1"/>
+                            <field name="country_id" required="1"/>
+                            <field name="capital_amount" />
+                            <field name="capital_percentage" />
+                        </tree>
+                    </field>
+                </page> 
+                <page string="Company Activities">
+                    <field name="company_activities" editable="bottom">
+                        <tree string="Company_Act" editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="company_id" required="1" readonly="1"/>
+                            <field name="code" required="1"/>
+                            <field name="turnover_addedvalue"/>
+                            <field name="percentage"/>
+                        </tree>
+                    </field>
+                </page>
+            <!--    <page string="Stakeholder/Partner">
+                    <field name="parent_ids" domain="[('stakeholder','=',True)]">
+                     <field name="parent_ids" domain="[('stakeholder','=',True)]" attrs="{'readonly':[('stakeholder','=',True)]}"> 
+                        <tree string="parent_tree">
+                            <field name="firstname"/>
+                            <field name="name"/>
+                            <field name="stakeholder_country_id" />
+                            <field name="stakeholder_capital_amount"/>
+                            <field name="stakeholder_capital_percentage"/>
+                        </tree>
+                    </field>
+                 </page> -->
+            </notebook>
+            </xpath>
+
+            <xpath expr="//form/sheet/notebook/page[@string='General Information']/group/group/field[@name='vat']" position="attributes">
+  	            <attribute name="invisible">1</attribute>          
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page[@string='General Information']/group/group/field[@name='company_registry']" position="attributes">
+  	            <attribute name="invisible">1</attribute>          
+            </xpath>
+        </field>
+    </record>
+    
+	<record id="view_res_partner_filter_inherit" model="ir.ui.view">
+        <field name="name">res.partner.geo.inherit.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <filter string="Salesperson" position="after">
+                <filter string="Stakeholder" name="stakeholder" icon="terp-go-home" context="{'group_by':'stakeholder'}"/>
+            </filter>
+        </field>
+    </record>
+	
+	<record id="company_branche_view" model="ir.ui.view">
+        <field name="name">res.company.view</field>
+        <field name="model">company.branche</field>
+        <field name="arch" type="xml">
+            <form string="Company_Branch">
+				<group>
+					<group>
+    					<field name="name" required="1"/>
+            			<field name="company_id" required="1"/>
+        			</group>
+        			<group>
+    					<field name="country_id" required="1"/>
+            			<field name="capital_amount"/>
+            			<field name="capital_percentage"/>
+        			</group>
+     		   	</group>
+        	</form>
+        </field>
+    </record>
+
+	<record id="company_activity_view" model="ir.ui.view">
+		<field name="name">company.activity.view</field>
+        <field name="model">company.activity</field>
+        <field name="arch" type="xml">
+            <form string="company_activity">
+                <group>
+                    <group>
+                        <field name="name" required="1"/>
+            			<field name="company_id" required="1"/>
+        			</group>
+        			<group>
+            			<field name="code" required="1"/>
+            			<field name="turnover_addedvalue"/>
+            			<field name="percentage"/>
+        			</group>
+        		</group>
+			</form>
+        </field>
+	</record>
+
+    <record id="inherit_res_partner_form_view" model="ir.ui.view">
+        <field name="name">inherit.res.partner.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+         <!--   <xpath expr="//form/sheet/notebook/page[@string='Account']" position="after">
+            	<page string="Info"></page>
+            </xpath>-->
+         <notebook position="inside">
+          	<page string="Stakeholder/Partner" groups="account.group_account_manager">
+          	   <group>
+              	   <field name="stakeholder" groups="account.group_account_manager"/>
+              	   <field name="stakeholder_country_id" groups="account.group_account_manager" attrs="{'required': [('stakeholder','=', True)],'readonly': [('stakeholder','!=',True)]}"/>
+              	   <field name="stakeholder_capital_amount" groups="account.group_account_manager" attrs="{'readonly': [('stakeholder','!=',True)]}"/>
+              	   <field name="stakeholder_capital_percentage" groups="account.group_account_manager" attrs="{'readonly': [('stakeholder','!=',True)]}"/>
+          	   </group>
+          	</page>
+        
+         </notebook>
+         <xpath expr="//form/sheet/group/group/div/div[@class='address_format']" position="replace">
+  	              <div class="address_format">
+  	                  <field name="zip" placeholder="ZIP" style="width: 20%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+                      <field name="city" placeholder="City" style="width: 40%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+                      <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}' on_change="onchange_state(state_id)" attrs="{'readonly': [('use_parent_address','=',True)]}" invisible="1"/>
+                      
+                  </div>        
+         </xpath>
+         <xpath expr="//form/sheet/div/field[@name='parent_id']" position="before">
+  	     	 <field name="firstname" placeholder="First Name" attrs="{'invisible':[('is_company','!=',False)]}" on_change="set_name(firstname,lastname)" />
+  	     	 <field name="lastname" placeholder="Last Name" attrs="{'invisible':[('is_company','!=',False)]}" on_change="set_name(firstname,lastname)"/>
+         </xpath>
+		<xpath expr="//form/sheet/div/h1/field[@name='name']" position="attributes">
+				<attribute name="attrs">{'invisible':[('is_company','=',False)]}</attribute>
+         </xpath>
+
+        </field>
+ </record>
+ 
+ <!-- ................financial_report_form_view......................... -->
+ 
+	<record id="financial_report_form_view" model="ir.ui.view">
+		<field name="name">financial.report.form.view</field>
+        <field name="model">frontpage</field>
+        <field name="arch" type="xml">
+            <form string="financial_rep_form">
+                <group>
+                    <group>
+                        <field name="fiscalyear" required="1"/>
+            			<field name="actual_closing_date" required="1"/>
+            			<field name="perc_production_capa_used"/>
+    					<field name="legal_form"/>
+    					<field name="fiscal_regime"/>
+    					<field name="head_office_country"/>
+    					<field name="branches_in_country"/>
+    					<field name="branches_out_country"/>
+					</group>
+        			<group>
+            			<field name="contact_person"/>
+            			<field name="professional_person"/> 
+            			<field name="public_accountant_1"/>
+            			<field name="public_accountant_2"/>
+            			<field name="certified"/>
+            			<field name="approved"/>
+            			<field name="signee"/>
+            			<field name="signing_date"/>
+          <!--          <field name="shareholders"/> -->
+        			</group>
+        			<notebook colspan="4"> 
+        			 	<page string="Dirigeants">
+							<field name="dir_hr_emp_ids" >
+		    					<tree string="hr_emp_tree">
+									<field name="firstname"/>
+        							<field name="job_id" />
+								</tree>    			
+		    			</field> 
+        			</page> 
+        			 	<page string="Conseil d'Administration">
+							<field name="con_hr_emp_ids" >
+		    					<tree string="hr_emp_tree">
+									<field name="firstname"/>
+        							<field name="job_id" />
+								</tree>    			
+        		    		 </field> 
+        			 	</page>
+        			<page string="Stakeholder/Partner">
+                    <field name="shareholders_ids" domain="[('stakeholder','=',True)]">
+                        <tree string="parent_tree">
+                            <field name="firstname"/>
+                            <field name="name"/>
+                            <field name="stakeholder_country_id" />
+                            <field name="stakeholder_capital_amount"/>
+                            <field name="stakeholder_capital_percentage"/>
+                        </tree>
+                    </field>
+                 </page>    			
+        			</notebook>
+        		</group>
+			</form>
+        </field>
+	 </record> 
+<!-- ............................financial report tree view .......................... -->	
+	<record id="financial_report_tree_view" model="ir.ui.view">
+		<field name="name">financial.report.tree.view</field>
+		<field name="model">frontpage</field>
+		<field name="arch" type="xml">
+			<tree string="financial_report_tree">
+				<field name="fiscalyear"/>
+				<field name="company_id"/>
+			</tree>	
+		</field>
+	</record>
+<!--..............................financial report action view....................... -->
+	<record id="financial_report_action_view" model="ir.actions.act_window">
+		<field name="name">Fiche de renseignements</field>
+		<field name="res_model">frontpage</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>		
+	</record>
+    
+    <record id="inherit_res_user_form_view" model="ir.ui.view">
+            <field name="name">inherit.res.user.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div/h1/field[@name='name']" position="attributes" editable="bottom">
+    				<attribute name="invisible">1</attribute>
+            	</xpath>
+      			<xpath expr="//form/sheet/div/h1/field[@name='name']" position="before">
+      	     	 	<field name="firstname" placeholder="First Name" on_change="user_full_name(firstname,lastname)" editable="bottom"/>
+      	     	 	<field name="lastname" placeholder="Last Name" on_change="user_full_name(firstname,lastname)" editable="bottom" />
+             	</xpath>
+        <!--     	<xpath expr="//tree/field[@name='firstname']" position="attributes">
+             	 <attribute name="invisible">1</attribute>        	
+             	</xpath>
+    			<xpath expr="//tree/field[@name='lastname']" position="attributes">
+    				<attribute name="invisible">1</attribute>
+    			</xpath>	-->
+            </field>
+    </record>
+    
+    <record id="inherit_view_employee_form" model="ir.ui.view">
+        <field name="name">inherit.view.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="firstname" required="1"/>
+                <field name="lastname" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="required">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+    
+
+</data>	
+</openerp>

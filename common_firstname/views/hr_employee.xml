@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="view_hr_employee_form_firstname" model="ir.ui.view">
+			<field name="name">Add firstname and lastname</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//field[@name='name']" position="attributes">
+						<attribute name="attrs">{
+							'readonly': True,
+							'required': False 
+							}
+						</attribute>
+					</xpath>
+
+					<xpath expr="//label[@for='category_ids']" position="before">
+						<group class="oe_edit_only" >
+							<field name="firstname" string="Prénom" attrs="{'required': [('lastname', '=', False)]}" />
+							<field name="lastname" string="Nom de famille" attrs="{'required': [('firstname', '=', False)]}" />
+						</group>
+					</xpath>
+				</data>
+			</field>
+		</record>
+
+	</data>
+</openerp>
