@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!-- Base HT -->
+
+		<record id="tva_root" model="account.tax.code.template" >
+			<field name="name">Déclaration TVA</field>
+			<field name="code">( I )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="vat_syscoa_tax_root" />
+		</record>
+
+		<record id="base_tax_tva_sales_total" model="account.tax.code.template">
+			<field name="name">Montant total des opérations</field>
+			<field name="code">(  5 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="base_tax_tva_sales_export" model="account.tax.code.template">
+			<field name="name">Affaires à l'exportation</field>
+			<field name="code">( 10 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_sales_nottaxed" model="account.tax.code.template">
+			<field name="name">Affaires réalisées à l'intérieur non taxées</field>
+			<field name="code">( 15 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_sales_suspended" model="account.tax.code.template">
+			<field name="name">Affaires réalisées en suspension de la TVA</field>   <!-- octroyée pour 2 ans sur demande -->
+			<field name="code">( 20 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_sales_exonerated" model="account.tax.code.template">
+			<field name="name">Total affaires non soumises à la TVA</field>         <!-- exonéré -->
+			<field name="code">( 25 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_sales_ownusage" model="account.tax.code.template">
+			<field name="name">Prélevements et livraisons ou prestation à soi-même</field>    
+			<field name="code">( 30 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_col" model="account.tax.code.template">
+			<field name="name">Montant total taxable (L5-L25)</field>
+			<field name="code">( 35 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_col_10" model="account.tax.code.template">
+			<field name="name">Montant total taxable - taux réduit</field>
+			<field name="code">( 40 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_col" />
+		</record>
+
+		<record id="base_tax_tva_col_18" model="account.tax.code.template">
+			<field name="name">Montant total taxable - taux normal (L35-L40)</field>
+			<field name="code">( 45 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_col" />
+		</record>
+
+		<record id="base_tax_tva_prec" model="account.tax.code.template">
+			<field name="name">Affaires soumises au précompte</field>   <!-- précompte -->
+			<field name="code">( 65 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_prec_10" model="account.tax.code.template">
+			<field name="name">Affaires soumises au précompte - taux réduit</field>   
+			<field name="code">( 66 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_prec" />
+		</record>
+
+		<record id="base_tax_tva_prec_18" model="account.tax.code.template">
+			<field name="name">Affaires soumises au précompte - taux normal</field>   
+			<field name="code">( 67 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_prec" />
+		</record>
+
+		<record id="base_tax_cheque_ddi" model="account.tax.code.template">
+			<field name="name">Imputation de chèques DDI</field>
+			<field name="code">( 75 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="base_tax_tva_acq_import" model="account.tax.code.template">
+			<field name="name">Montant des importation du mois</field>
+			<field name="code">( 80 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="base_tax_tva_acq_internal" model="account.tax.code.template">
+			<field name="name">Montant des achats intérieurs du mois</field>
+			<field name="code">( 89 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_sales_total" />
+		</record>
+
+		<record id="base_tax_tva_acq_internal_10" model="account.tax.code.template">
+			<field name="name">Montant des achats intérieurs du mois - taux réduit</field>
+			<field name="code">( 891 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_acq_internal" />
+		</record>
+
+		<record id="base_tax_tva_acq_internal_18" model="account.tax.code.template">
+			<field name="name">Montant des achats intérieurs du mois - taux normal</field>
+			<field name="code">( 892 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_acq_internal" />
+		</record>
+
+		<record id="base_tax_tva_acq_internal_0" model="account.tax.code.template">
+			<field name="name">Montant des achats intérieurs du mois - susp/exo</field>
+			<field name="code">( 893 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="base_tax_tva_acq_internal" />
+		</record>
+
+		<!-- Tax code -->
+
+		<record id="tax_tva_col" model="account.tax.code.template">
+			<field name="name">Montant de la TVA brute (L50 + L55)</field>
+			<field name="code">( 60 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="tax_tva_col_10" model="account.tax.code.template">
+			<field name="name">Montant de la TVA - taux réduit (L40 * 10%)</field>
+			<field name="code">( 50 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_col" />
+		</record>
+
+		<record id="tax_tva_col_18" model="account.tax.code.template">
+			<field name="name">Montant de la TVA - taux normal (L45 * 18%)</field>
+			<field name="code">( 55 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_col" />
+		</record>
+
+		<record id="tax_tva_col_0" model="account.tax.code.template">
+			<field name="name">Montant de la TVA - exo./susp.</field>
+			<field name="code">( 56 )</field> 
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_col" />
+		</record>
+
+
+		<record id="tax_tva_prec" model="account.tax.code.template">
+			<field name="name">Précompte de TVA</field>
+			<field name="code">( 70 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="tax_tva_prec_10" model="account.tax.code.template">
+			<field name="name">Précompte de TVA - taux réduit</field>
+			<field name="code">( 71 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_prec" />
+		</record>
+
+		<record id="tax_tva_prec_18" model="account.tax.code.template">
+			<field name="name">Précompte de TVA - taux normal</field>
+			<field name="code">( 72 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_prec" />
+		</record>
+
+		<record id="tax_tva_acq_import" model="account.tax.code.template">
+			<field name="name">TVA acquittée sur les importations du mois</field>
+			<field name="code">( 85 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="tax_tva_acq_internal" model="account.tax.code.template">
+			<field name="name">TVA acquittée sur les achats intérieurs du mois</field>
+			<field name="code">( 90 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tva_root" />
+		</record>
+
+		<record id="tax_tva_acq_internal_10" model="account.tax.code.template">
+			<field name="name">TVA acquittée sur les achats intérieurs du mois - taux réduits</field>
+			<field name="code">( 91 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_acq_internal" />
+		</record>
+
+		<record id="tax_tva_acq_internal_18" model="account.tax.code.template">
+			<field name="name">TVA acquittée sur les achats intérieurs du mois - taux normal</field>
+			<field name="code">( 92 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_acq_internal" />
+		</record>
+
+		<record id="tax_tva_acq_internal_0" model="account.tax.code.template">
+			<field name="name">TVA acquittée sur les achats intérieurs du mois - exo./susp.</field>
+			<field name="code">( 93 )</field>
+			<field name="sign">1.00</field>
+			<field name="parent_id" ref="tax_tva_acq_internal" />
+		</record>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!-- Tax -->
+
+		<record id="tva_col_10_sales" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% collectée sur vente</field>
+			<field name="description">TVA 10% (vente)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4431" />
+			<field name="account_paid_id" ref="pcg_4431" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_10_sales_ttc" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA TTC 10% collectée sur vente</field>
+			<field name="description">TVA TTC 10% (vente)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+			<field name="price_include" eval="True" />
+
+			<field name="base_code_id" ref="base_tax_tva_col_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4431" />
+			<field name="account_paid_id" ref="pcg_4431" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_10_sales_ownusage" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% (production livrée à soi-même)</field>
+			<field name="description">TVA 10% (livrée à soi-même)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_sales_ownusage"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4434" />
+			<field name="account_paid_id" ref="pcg_4434" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_sales_ownusage" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_10_sales_to_invoice" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% (factures à établir)</field>
+			<field name="description">TVA 10% (factures à établir)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4435" />
+			<field name="account_paid_id" ref="pcg_4435" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_18_sales" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% collectée sur vente</field>
+			<field name="description">TVA 18% (vente)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4431" />
+			<field name="account_paid_id" ref="pcg_4431" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_col_18_sales_ttc" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA TTC 18% collectée sur ventes</field>
+			<field name="description">TVA TTC 18% (vente)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+			<field name="price_include" eval="True" />
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4431" />
+			<field name="account_paid_id" ref="pcg_4431" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_col_18_sales_service" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% collectée sur prestations de service</field>
+			<field name="description">TVA 18% (prestation de service)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4432" />
+			<field name="account_paid_id" ref="pcg_4432" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_col_18_sales_building" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% collectée sur travaux</field>
+			<field name="description">TVA 18% (travaux)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4433" />
+			<field name="account_paid_id" ref="pcg_4433" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+
+		<record id="tva_col_18_sales_ownusage" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% sur production livrée à soi-même</field>
+			<field name="description">TVA 18% (production livrée à soi-même)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4434" />
+			<field name="account_paid_id" ref="pcg_4434" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_18_sales_to_invoice" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% collectée sur factures à établir</field>
+			<field name="description">TVA 18% (factures à établir)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4435" />
+			<field name="account_paid_id" ref="pcg_4435" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_col_18_sales_to_invoice" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% collectée sur opérations diverses</field>
+			<field name="description">TVA 18% (opérations diverses)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_col_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4438" />
+			<field name="account_paid_id" ref="pcg_4438" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_col_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_col_18_sales_suspended" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">Suspension de TVA (vente)</field>
+			<field name="description">Suspension de TVA (vente)</field>
+			<field name="amount" eval="0.00" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_sales_suspended"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_0"/>	
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4438" />
+			<field name="account_paid_id" ref="pcg_4438" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_sales_suspended" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_0" />	
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_col_18_sales_exonerated" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">Exonéré de TVA</field>
+			<field name="description">Exonéré de TVA (vente)</field>
+			<field name="amount" eval="0.00" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_sales_exonerated"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_col_0"/>	
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4438" />
+			<field name="account_paid_id" ref="pcg_4438" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_sales_exonerated" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_col_0" />	
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">sale</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<!-- Purchase -->		
+
+		<!-- import -->
+		<record id="tva_acq_purchase_import" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA acquittée sur les importations</field>
+			<field name="description">TVA 18% (import)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_import"/> 
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_import"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4454" />
+			<field name="account_paid_id" ref="pcg_4454" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_import" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_import" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<!-- intérieur -->
+		<record id="tva_acq_10_purchase" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% recupérable sur achats</field>
+			<field name="description">TVA 10% (achat)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_acq_10_purchase_ttc" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA TTC 10% recupérable sur achats</field>
+			<field name="description">TVA TTC 10% (achat)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+			<field name="price_include" eval="True" />
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="base_tax_tva_acq_internal_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="base_tax_tva_acq_internal_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_acq_10_purchase_unpaid" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% récupérable sur factures non parvenues</field>
+			<field name="description">TVA 10% (factures non parvenues)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4455" />
+			<field name="account_paid_id" ref="pcg_4455" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+		
+		<record id="tva_acq_10_purchase_transfered" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 10% transférée par d'autres entreprises</field>
+			<field name="description">TVA 10% (transf./ d'autres entreprises)</field>
+			<field name="amount" eval="0.10" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_10"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_10"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4456" />
+			<field name="account_paid_id" ref="pcg_4456" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_10" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_10" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+
+		<record id="tva_acq_18_purchase" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% recupérable sur achats</field>
+			<field name="description">TVA 18% (achat)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_acq_18_purchase_ttc" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA TTC 18% recupérable sur achats</field>
+			<field name="description">TVA TTC 18% (achat)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+			<field name="price_include" eval="True" />
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_acq_18_purchase_immobilization" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% recupérable sur immobilisations</field>
+			<field name="description">TVA 18% (achat immobilisation)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4451" />
+			<field name="account_paid_id" ref="pcg_4451" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_acq_18_purchase_transport" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% recupérable sur tranport</field>
+			<field name="description">TVA 18% (achat transport)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4453" />
+			<field name="account_paid_id" ref="pcg_4453" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_acq_18_purchase_unpaid" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% recupérable sur factures non parvenues</field>
+			<field name="description">TVA 18% (factures non parvenues)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4455" />
+			<field name="account_paid_id" ref="pcg_4455" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+
+		<record id="tva_acq_18_purchase_transfered" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">TVA 18% transférée par d'autres entreprises</field>
+			<field name="description">TVA 18% (transf./ d'autres entreprises)</field>
+			<field name="amount" eval="0.18" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_18"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_18"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4456" />
+			<field name="account_paid_id" ref="pcg_4456" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_18" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_18" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+
+		<record id="tva_acq_18_purchase_exonerated" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">Exonéré de TVA sur achats</field>
+			<field name="description">Exonéré de TVA (achat)</field>
+			<field name="amount" eval="0.00" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_0"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_0"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_0" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_0" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="True" />
+		</record>
+		
+		<record id="tva_acq_18_purchase_suspended" model="account.tax.template">
+			<field name="chart_template_id" ref="syscoa_chart_template" />
+			<field name="name">Suspension de TVA sur achats</field>
+			<field name="description">Suspension de TVA (achat)</field>
+			<field name="amount" eval="0.00" />
+			<field name="type">percent</field>
+
+			<field name="base_code_id" ref="base_tax_tva_acq_internal_0"/>
+			<field name="base_sign" eval="1"/>
+			<field name="tax_code_id" ref="tax_tva_acq_internal_0"/>
+			<field name="tax_sign" eval="1"/>
+
+			<field name="account_collected_id" ref="pcg_4452" />
+			<field name="account_paid_id" ref="pcg_4452" />
+
+			<field name="ref_base_code_id" ref="base_tax_tva_acq_internal_0" />
+			<field name="ref_base_sign" eval="-1" />
+			<field name="ref_tax_code_id" ref="tax_tva_acq_internal_0" />
+			<field name="ref_tax_sign" eval="-1" />
+
+			<field name="type_tax_use">purchase</field>
+			<field name="active" eval="False" />
+		</record>
+		
+
+	</data>
+</openerp>
