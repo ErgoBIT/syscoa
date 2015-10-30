@@ -45,7 +45,11 @@ coverage.xml
 
 # Translations
 *.mo
-*.pot
+
+# Eclipse / PyDev
+.project
+.pydevproject
+
 
 # Django stuff:
 *.log
